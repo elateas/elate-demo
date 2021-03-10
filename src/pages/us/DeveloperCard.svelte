@@ -42,11 +42,13 @@
 
   div {
     padding: 24px 48px;
+    width: 100%;
   }
 
   img {
     width: 125px;
     object-fit: contain;
+    height: 100%;
   }
   @media screen and (max-width: 992px) {
     div {
