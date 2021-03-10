@@ -1,10 +1,14 @@
 <script>
+  import { onMount } from "svelte";
   export let to;
   export let handleClick;
   export let desktopHide = "";
+  let isActive = false;
 
-  const { pathname } = window.location;
-  let isActive = pathname === to;
+  onMount(() => {
+    const { pathname } = window.location;
+    isActive = pathname === to;
+  });
 </script>
 
 <li class={`${desktopHide ? "hidden" : ""} ${isActive ? "active" : ""}`}>
