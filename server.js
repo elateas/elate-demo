@@ -18,7 +18,7 @@ server.get("*", function (req, res) {
 
     <title>Elate - seniorkonsulenter</title>
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/svg" href="/favicon.svg" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="stylesheet" href="/build/bundle.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />

@@ -1,11 +1,25 @@
 <script>
   let isOpen = false;
   import { links } from "svelte-routing";
+  import NavLink from "./NavLink.svelte";
 
   const handleClick = () => {
-    isOpen = !isOpen;
+    if (window.innerWidth < 992) {
+      isOpen = !isOpen;
+    }
   };
 </script>
+
+<button on:click={handleClick}>
+  <div class={`burger burger--${isOpen ? "close" : ""}`} />
+</button>
+<ul class={`mega-menu--${isOpen ? "show" : "hidden"}`} use:links>
+  <NavLink desktopHide={true} {handleClick} to="/">Hjem</NavLink>
+  <NavLink {handleClick} to="/salg">Kontakt oss</NavLink>
+  <NavLink {handleClick} to="/konsulent">Karriere</NavLink>
+  <NavLink {handleClick} to="/oss">Våre konsulenter</NavLink>
+  <NavLink {handleClick} to="https://phb.elate.no">Personalhåndboka</NavLink>
+</ul>
 
 <style>
   .burger {
@@ -98,22 +112,9 @@
     color: white;
     font-size: 1.25rem;
   }
-  li {
-    padding-right: 48px;
-  }
-  a {
-    color: #fff;
-  }
-  .home-link {
-    display: none;
-  }
   @media screen and (max-width: 992px) {
     ul {
       font-size: 1.75rem;
-    }
-    li {
-      padding-bottom: 20px;
-      padding-right: 24px;
     }
 
     .mega-menu--hidden {
@@ -123,18 +124,5 @@
     .burger {
       display: block;
     }
-    .home-link {
-      display: initial;
-    }
   }
 </style>
-
-<button on:click={handleClick}>
-  <div class={`burger burger--${isOpen ? 'close' : ''}`} />
-</button>
-<ul class={`mega-menu--${isOpen ? 'show' : 'hidden'}`} use:links>
-  <li class="home-link"><a href="/">Hjem</a></li>
-  <li><a on:click={handleClick} href="/salg">Kontakt oss</a></li>
-  <li><a on:click={handleClick} href="/konsulent">Rekrutering</a></li>
-  <li><a on:click={handleClick} href="/oss">Våre konsulenter</a></li>
-</ul>

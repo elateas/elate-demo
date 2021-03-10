@@ -8,10 +8,27 @@
   import Fields from "./Home/Fields.svelte";
   import Previous from "./Home/Previous.svelte";
 
-  onMount(() => {
-    window.scrollTo(0, 0);
-  });
+  onMount(() => window.scrollTo(0, 0));
 </script>
+
+<main>
+  <Hero />
+  <div class="entry">
+    <Card title="Elate er senior&shy;konsulenter">
+      Vi brenner for å styrke den teknologiske utviklingen i Norge
+      <div use:links class="button-group">
+        <a class="btn" href="/salg">Trenger du konsulenter?</a>
+        <a class="btn" href="/konsulent">Er du vår nye kollega?</a>
+      </div>
+    </Card>
+  </div>
+  <Freedom />
+  <Fields />
+  <Previous />
+  <section class="contact-section">
+    <ContactCard />
+  </section>
+</main>
 
 <style>
   main {
@@ -74,22 +91,3 @@
     }
   }
 </style>
-
-<main>
-  <Hero />
-  <div class="entry">
-    <Card title="Elate er senior&shy;konsulenter">
-      Vi brenner for å styrke den teknologiske utviklingen i Norge
-      <div use:links class="button-group">
-        <a class="btn" href="/salg">Trenger du konsulenter?</a>
-        <a class="btn" href="/konsulent">Er du vår nye kollega?</a>
-      </div>
-    </Card>
-  </div>
-  <Freedom />
-  <Fields />
-  <Previous />
-  <section class="contact-section">
-    <ContactCard />
-  </section>
-</main>
